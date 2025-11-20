@@ -1,0 +1,51 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AuthResponse {
+  access_token: String!
+}
+
+input CreateTaskInput {
+  description: String
+  title: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  createTask(input: CreateTaskInput!): Task!
+  deleteTask(id: Int!): Boolean!
+  login(input: LoginInput!): AuthResponse!
+  register(input: RegisterInput!): AuthResponse!
+  testInput(input: CreateTaskInput!): String!
+  toggleTask(id: Int!): Task!
+}
+
+type Query {
+  me: User
+  myTasks: [Task!]!
+}
+
+input RegisterInput {
+  email: String!
+  name: String!
+  password: String!
+}
+
+type Task {
+  completed: Boolean!
+  description: String
+  id: Int!
+  title: String!
+  userId: Int!
+}
+
+type User {
+  email: String!
+  id: Int!
+  name: String!
+}
