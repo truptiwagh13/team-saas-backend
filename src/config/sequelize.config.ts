@@ -14,5 +14,6 @@ export const getSequelizeConfig = async (
   database: configService.get<string>('DB_DATABASE'),
   models: [User, Task],
   autoLoadModels: true,
-  synchronize: true, // ✅ only for dev
+  synchronize: true,
+  logging: false,   // <--- ADD THIS
 });
