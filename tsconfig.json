@@ -21,5 +21,10 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false
-  }
+  },
+
+  "ignoreDeprecations": "6.0",
+
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
