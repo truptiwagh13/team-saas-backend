@@ -6,7 +6,7 @@ import {
   AutoIncrement,
   HasMany,
 } from 'sequelize-typescript';
-import { Task } from 'src/tasks/task.model';
+import { Task } from '../tasks/task.model';
 import { ObjectType, Field, Int } from '@nestjs/graphql';
 
 export interface UserCreationAttrs {
