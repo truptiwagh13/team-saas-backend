@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: team_saas
+      MYSQL_USER: saasuser
+      MYSQL_PASSWORD: saaspass
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  backend:
+    build: .
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: saasuser
+      DB_PASS: saaspass
+      DB_NAME: team_saas
+      JWT_SECRET: supersecret
+    ports:
+      - "3000:3000"
+    command: >
+      sh -c "sleep 10 && npm run start:prod"
+
+volumes:
+  db_data:
